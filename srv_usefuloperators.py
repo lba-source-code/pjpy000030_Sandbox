@@ -1,23 +1,7 @@
 """DSSi comment: stantdard package"""
 
 """DSSi comment: custom package"""
-
-"""DSSi comment: msg log"""
-class Cl_msglog:
-
-    def mt_msglog_start(self, msg="ini", description="init"):
-        print(f'\nDSSi log START {msg}: {description}\n')
-    
-    def mt_msglog_start(self, msg="ini", description="init"):
-        print(f'\nDSSi log {msg}: {description}\n')
-
-    def mt_msglog_start(self, msg="ini", description="init"):
-        print(f'\nDSSi log ERROR {msg}: {description}\n')
-
-    def mt_msglog_start(self, msg="ini", description="init"):
-        print(f'\nDSSi log FINISH {msg}: {description}\n')
-
-"""DSSi comment: runtime log"""
+from srv_core_msglog import Cl_msglog
 
 """DSSi comment: global variable"""
 gv_msglog = Cl_msglog()
@@ -26,7 +10,8 @@ gv_msglog = Cl_msglog()
 
 def fn_usefuloperators():
     gv_msglog.mt_msglog_start('fn_usefuloperators')
-    return
+
+    return gv_msglog.mt_msglog_finished('fn_usefuloperators')
 
 """DSSi call service"""
 fn_usefuloperators()
